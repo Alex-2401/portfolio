@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ULTRAMAN — FYP</title>
+        <link rel="stylesheet" href="../../../css/style.css" />
+        <meta name="color-scheme" content="light dark" />
+        <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+        <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    </head>
+    <body>
+        <nav class="main-nav">
+            <a href="../../../index.html" class="button back-button">Home</a>
+            <a href="../../about.html" class="button back-button">About</a>
+            <a href="../../experience.html" class="button back-button">Experience</a>
+            <a href="../../Projects/ultraman/index.html" class="button back-button">Research</a>
+            <a href="../index.html" class="button back-button">Projects</a>
+        </nav>
+
+        <div class="page-header container">
+            <a href="index.html" class="back-link">← Back to ULTRAMAN</a>
+            <h1>ULTRAMAN — Final Year Project</h1>
+        </div>
+
+        <div class="box">
+            <p>
+                <strong>Automated ML-Based Assessment of Surface Damage in Metal Forming</strong>
+                (MEng FYP, Year-4). I automated data capture and control on the ULTRAMAN rig, building a multi-sensor workflow and computer-vision tooling for objective wear measurement. The page below outlines the sensors, optics and CV method, key signals, Machine Learning and cloud data flow.
+            </p>
+        </div>
+
+        <div class="box image-box">
+            <figure class="thumb">
+                <img src="../../../images/Projects/Ultraman/fyp/FYP_Poster.jpg" alt="ULTRAMAN FYP poster" class="main-image" style="width: 100%; max-width: none; height: auto; max-height: 900px" />
+                <figcaption>Final Year Project poster</figcaption>
+            </figure>
+        </div>
+
+        <h2>Sensors</h2>
+
+        <div class="box image-box">
+            <figure class="thumb">
+                <img src="../../../images/Projects/Ultraman/fyp/ultraman_sensors.jpg" alt="ULTRAMAN sensors overview" class="main-image" />
+                <figcaption>Overview of the sensors used in the ULTRAMAN rig</figcaption>
+            </figure>
+        </div>
+
+        <div class="box">
+            <p>The system records time-synchronised inputs: high-resolution images of the wear track and pin head; six-axis force data; and temperature and humidity measurements. All data use a common timestamp for reproducible analysis.</p>
+        </div>
+
+        <h2>Optical Imaging</h2>
+
+        <div class="box image-box equal-height">
+            <figure>
+                <div class="row-of-2 uniform">
+                    <figure class="thumb">
+                        <img src="../../../images/Projects/Ultraman/fyp/scratch_image.jpg" alt="Wear-track image" />
+                        <figcaption>Wear-track imaging</figcaption>
+                    </figure>
+                    <figure class="thumb">
+                        <img src="../../../images/Projects/Ultraman/fyp/Pinhead_Image.jpg" alt="Pin-head inspection" />
+                        <figcaption>Pin-head imaging</figcaption>
+                    </figure>
+                </div>
+            </figure>
+        </div>
+
+        <div class="box">
+            <p>
+                The system uses two calibrated imaging paths: a
+                <strong>wear-track camera</strong> and a <strong>pin-head camera</strong>. The wear-track camera captures high-resolution frames with a known mm-per-pixel scale to measure width growth and surface features across cycles.
+            </p>
+            <p>The pin-head camera records build-up and wear flats on the tool and verifies the cleaning module’s effect. Using both views separates tool effects from track damage, supports reliable labelling, and helps interpret friction and tool wear trends.</p>
+        </div>
+
+        <h2>Sensor Data and Computer Vision</h2>
+
+        <div class="box image-box">
+            <h2>Key Signals</h2>
+            <figure>
+                <div class="row-of-2 same-height">
+                    <figure class="thumb">
+                        <img src="../../../images/Projects/Ultraman/fyp/scratch_width.png" alt="Scratch width over cycles" />
+                        <figcaption>Wear-track width vs cycles (Using computer vision)</figcaption>
+                    </figure>
+                    <figure class="thumb">
+                        <img src="../../../images/Projects/Ultraman/fyp/combined_temp_humidity.png" alt="Temperature and humidity" />
+                        <figcaption>Temperature and humidity (Using environmental sensors)</figcaption>
+                    </figure>
+                </div>
+                <div class="row-of-2 same-height">
+                    <figure class="thumb">
+                        <img src="../../../images/Projects/Ultraman/fyp/Frequency_Comparison.jpg" alt="Frequency comparison" />
+                        <figcaption>Frequency diagnostic (Using environmental sensors)</figcaption>
+                    </figure>
+                    <figure class="thumb">
+                        <img src="../../../images/Projects/Ultraman/fyp/average_cof_1.png" alt="Coefficient of friction over cycles" />
+                        <figcaption>Coefficient of friction (Using load cell)</figcaption>
+                    </figure>
+                </div>
+            </figure>
+        </div>
+
+        <div class="box">
+            <h3>Sensors</h3>
+            <ul class="indented-list">
+                <li>Force: six-axis measurement; tared at run start; low-pass filtered at 5&nbsp;Hz.</li>
+                <li>Friction: CoF (Coefficient of Friction) computed as lateral/normal force on the common timeline (μ = Fy/Fz).</li>
+                <li>Environment: temperature and humidity and acoustic frequency recorded with timestamps for each cycle.</li>
+            </ul>
+            <h3>Computer vision</h3>
+            <ul class="indented-list">
+                <li>Rectification → ROI crop → normalisation/denoise → edge detection → line/contour fit → px→mm conversion.</li>
+                <li>Outlier rejection and session-level calibration checks for unattended multi-cycle runs.</li>
+            </ul>
+        </div>
+
+        <h2>Machine Learning, Cloud and Data Management</h2>
+
+        <div class="box image-box equal-height">
+            <figure>
+                <div class="row-of-2 uniform">
+                    <figure class="thumb">
+                        <img src="../../../images/Projects/Ultraman/fyp/ML_Architecture.png" alt="ML architecture" />
+                        <figcaption>Machine Learning architecture</figcaption>
+                    </figure>
+                    <figure class="thumb">
+                        <img src="../../../images/Projects/Ultraman/fyp/data_pipeline.png" alt="Local to cloud data pipeline" />
+                        <figcaption>Local to cloud pipeline</figcaption>
+                    </figure>
+                </div>
+            </figure>
+        </div>
+
+        <div class="box">
+            <div class="row-of-2">
+                <div class="text-col">
+                    <h3>Machine Learning</h3>
+                    <ul class="indented-list">
+                        <li>TensorFlow (Python) models using features from synchronised sensor streams and CV-derived widths.</li>
+                        <li>Versioned Parquet datasets with run-level metadata; train/val/test split by run to prevent leakage.</li>
+                        <li>Class weighting and lightweight hyperparameter search; fixed seeds for reproducibility.</li>
+                        <li>Models exported as TensorFlow SavedModel; inference scripts generate per-cycle predictions.</li>
+                    </ul>
+                </div>
+                <div class="text-col">
+                    <h3>Cloud &amp; Data</h3>
+                    <ul class="indented-list">
+                        <li>Local acquisition to batch/stream upload; images and tables stored alongside CV outputs.</li>
+                        <li>
+                            Cloud-hosted relational schema (tables:
+                            <em>tests</em>, <em>scratches</em>, <em>time_series</em>, <em>metadata</em>) and Parquet artifacts.
+                        </li>
+                        <li>Indexed by <code>test_id</code>, <code>scratch_id</code>, and timestamp; queries reconstruct runs for training and plots.</li>
+                        <li>Shared source for notebooks/dashboards to retrieve, train, and visualise without duplication.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <footer class="site-footer">
+            <div class="container footer-min">
+                <hr class="footer-rule" />
+                <p>© 2025 Alexander Pittaras</p>
+                <p class="footer-icons">
+                    <a href="mailto:alex.pittaras@gmail.com">
+                        <img src="../../../images/Logos/Gmail_icon.png" alt="" class="icon" />
+                        Gmail
+                    </a>
+                    |
+                    <a href="https://linkedin.com/in/alexpittaras" target="_blank" rel="noopener">
+                        <img src="../../../images/Logos/LinkedIn_logo.png" alt="" class="icon" />
+                        LinkedIn
+                    </a>
+                    |
+                    <a href="https://github.com/Alex-2401" target="_blank" rel="noopener">
+                        <img src="../../../images/Logos/Github_logo.png" alt="" class="icon" />
+                        GitHub
+                    </a>
+                </p>
+                <p>London, UK</p>
+            </div>
+        </footer>
+    </body>
+</html>

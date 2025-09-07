@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ICHACK25 - Edu-Rob</title>
+        <link rel="stylesheet" href="../../css/style.css" />
+        <meta name="color-scheme" content="light dark" />
+        <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+        <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    </head>
+    <body>
+        <nav class="main-nav">
+            <a href="../../index.html" class="button back-button">Home</a>
+            <a href="../about.html" class="button back-button">About</a>
+            <a href="../experience.html" class="button back-button">Experience</a>
+            <a href="../Projects/ultraman/index.html" class="button back-button">Research</a>
+            <a href="index.html" class="button back-button">Projects</a>
+        </nav>
+
+        <h1>Natural-Language Robot Control</h1>
+
+        <div class="box">
+            <p><strong>Edu-Rob</strong> is a browser-based system that teaches Python by letting users program a robot with natural-language prompts. A constrained LLM (Large Language Model) returns a minimal script using only the allowed movement functions and simple control flow; the frontend extracts those calls and transmits a serialised command list over Web Bluetooth to an ESP32, which bridges to the IC-Badge controller to drive the motors and show the active direction on its LED display.</p>
+        </div>
+
+        <div class="box image-box equal-height">
+            <figure>
+                <div class="row-of-2 uniform">
+                    <figure class="thumb portrait">
+                        <video controls preload="metadata">
+                            <source src="../../images/Projects/Edu-Rob/Edu-Rob_Working_Video.mp4" type="video/mp4" />
+                        </video>
+                        <figcaption>Live Demonstration</figcaption>
+                    </figure>
+                    <figure class="thumb">
+                        <img src="../../images/Projects/Edu-Rob/Robot_Upclose.jpg" alt="Edu-Rob robot close-up" />
+                        <figcaption>Robot close-up</figcaption>
+                    </figure>
+                </div>
+                <figcaption>Live demo and hardware detail.</figcaption>
+            </figure>
+        </div>
+
+        <div class="box image-box equal-height">
+            <figure>
+                <div class="row-of-2 uniform">
+                    <figure class="thumb">
+                        <img src="../../images/Projects/Edu-Rob/Winning_Picture.jpg" alt="ICHACK25 awards" />
+                        <figcaption>ICHACK25 Second Place</figcaption>
+                    </figure>
+                    <figure class="thumb">
+                        <img src="../../images/Projects/Edu-Rob/Team_Picture.jpg" alt="Edu-Rob team" />
+                        <figcaption>Edu-Rob team</figcaption>
+                    </figure>
+                </div>
+                <figcaption>Competition highlights</figcaption>
+            </figure>
+        </div>
+
+        <div class="box">
+            <h2>Input and generation</h2>
+            <p>The UI collects the user’s action list in plain English and submits it to an LLM (Large Language Model) under a strict system prompt. The return must be a single Python script that uses only the whitelisted movement functions and the keywords if, else, for, and while. The frontend validates the script by rejecting disallowed identifiers, imports, I/O, or comments, enforcing simple loop bounds, and checking the expected instruction count. The validated script is then reduced to a canonical sequence of opcodes (for example FORWARDS, RIGHT 90) that matches the teaching examples in the slides.</p>
+            <p></p>
+            <h2>Execution path</h2>
+            <p>The opcode sequence is framed into compact messages and streamed over the Web Bluetooth API (Application Programming Interface) to the ESP32. Each message is acknowledged before the next is sent. The ESP32 forwards the commands over UART0 (Universal Asynchronous Receiver-Transmitter) to the ICHACK-Badge interpreter, which drives the motor controller via GPIO (General-Purpose Input/Output)/PWM (Pulse-Width Modulation) and updates the badge LED with the active action. The app surfaces acknowledgements and errors so users can see exactly how their prompt maps to movement.</p>
+        </div>
+
+        <div class="box image-box equal-height">
+            <figure>
+                <div class="row-of-2 uniform">
+                    <figure class="thumb">
+                        <img src="../../images/Projects/Edu-Rob/Architecture_1.png" alt="Edu-Rob architecture view 1" />
+                        <figcaption>Architecture — high-level flow</figcaption>
+                    </figure>
+                    <figure class="thumb">
+                        <img src="../../images/Projects/Edu-Rob/Architecture_2.png" alt="Edu-Rob architecture view 2" />
+                        <figcaption>Command path (LLM → ESP32 → ICHACK-Badge)</figcaption>
+                    </figure>
+                </div>
+                <figcaption>System architecture — LLM-constrained Python → parsed commands → Web Bluetooth → UART0 → GPIO/PWM</figcaption>
+            </figure>
+        </div>
+
+        <footer class="site-footer">
+            <div class="container footer-min">
+                <hr class="footer-rule" />
+                <p>© 2025 Alexander Pittaras</p>
+
+                <p class="footer-icons">
+                    <a href="mailto:alex.pittaras@gmail.com">
+                        <img src="../../images/Logos/Gmail_icon.png" alt="" class="icon" />
+                        Gmail
+                    </a>
+                    |
+                    <a href="https://linkedin.com/in/alexpittaras" target="_blank" rel="noopener">
+                        <img src="../../images/Logos/LinkedIn_logo.png" alt="" class="icon" />
+                        LinkedIn
+                    </a>
+                    |
+                    <a href="https://github.com/Alex-2401" target="_blank" rel="noopener">
+                        <img src="../../images/Logos/Github_logo.png" alt="" class="icon" />
+                        GitHub
+                    </a>
+                </p>
+
+                <p>London, UK</p>
+            </div>
+        </footer>
+    </body>
+</html>

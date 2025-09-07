@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ULTRAMAN — Research</title>
+        <link rel="stylesheet" href="../../../css/style.css" />
+        <meta name="color-scheme" content="light dark" />
+        <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+        <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    </head>
+    <body>
+        <nav class="main-nav">
+            <a href="../../../index.html" class="button back-button">Home</a>
+            <a href="../../about.html" class="button back-button">About</a>
+            <a href="../../experience.html" class="button back-button">Experience</a>
+            <a href="../../Projects/ultraman/index.html" class="button back-button">Research</a>
+            <a href="../index.html" class="button back-button">Projects</a>
+        </nav>
+
+        <div class="page-header container">
+            <a href="index.html" class="back-link">← Back to ULTRAMAN</a>
+            <h1>ULTRAMAN — Research</h1>
+        </div>
+
+        <div class="box">
+            <p><strong>ULTRAMAN — Research.</strong> Ongoing work extending the platform to in-line sensing, data analysis/ML, and temperature-resolved lubricant evaluation. The goal is to show surface condition as tests run, predict galling/wear from multi-sensor data, and prevent defects via informed process and lubricant choices. We are liaising with industry partners, including Apple, Schuler and many others.</p>
+        </div>
+
+        <h2>Experimental setup</h2>
+        <div class="box">
+            <p>The rig uses a UR10 for repeatable loading paths, a heated contact station, and automated blank handling and spraying. Sensing includes high-resolution imaging of the wear track and pin head, force/torque, and environmental logging. Tests can run unattended for an entire shift, with data streamed to a local controller and archived in the cloud for analysis.</p>
+        </div>
+
+        <div class="box image-box equal-height">
+            <figure>
+                <div class="row-of-2 uniform">
+                    <figure class="thumb">
+                        <img src="../../../images/Projects/Ultraman/research/ultraman_real_life.jpg" alt="Current Lab Setup in the DFF lab" style="width: 100%; height: clamp(480px, 36vw, 900px); object-fit: contain" />
+                        <figcaption>Current Lab Setup in the DFF lab</figcaption>
+                    </figure>
+                    <figure class="thumb">
+                        <video controls preload="metadata" style="width: 100%; height: clamp(480px, 36vw, 900px); max-height: none; object-fit: contain; display: block">
+                            <source src="../../../images/Projects/Ultraman/research/ultraman_research_test.mp4" type="video/mp4" />
+                        </video>
+                        <figcaption>Test video of the rig</figcaption>
+                    </figure>
+                </div>
+            </figure>
+        </div>
+
+        <div class="box image-box equal-height">
+            <figure>
+                <div class="row-of-2 uniform">
+                    <figure class="thumb" style="align-items: stretch; text-align: left">
+                        <img src="../../../images/Projects/Ultraman/research/pin_on_disk.jpg" alt="v1 — early pin-on-disk test" />
+                        <figcaption>Current Industry Standard — Pin-on-disk: simple, but overlapping wear tracks made measurements unreliable.</figcaption>
+                    </figure>
+                    <figure class="thumb" style="align-items: stretch; text-align: left">
+                        <img src="../../../images/Projects/Ultraman/research/UR10_arm.jpg" alt="v2 — UR10 with manual heating and blank movement" />
+                        <figcaption>First Iteration — UR10 + manual heating/blank movement: eliminated overlap; repeatable kinematics.</figcaption>
+                    </figure>
+                </div>
+
+                <div class="row-of-2 uniform">
+                    <figure class="thumb" style="align-items: stretch; text-align: left">
+                        <img src="../../../images/Projects/Ultraman/dmt/ultraman_render_1.png" alt="v3 — automated heating/motion and lubricant application (DMT)" />
+                        <figcaption>Second Iteration — DMT: automated heating, motion, and lubricant application in a shielded enclosure.</figcaption>
+                    </figure>
+                    <figure class="thumb" style="align-items: stretch; text-align: left">
+                        <img src="../../../images/Projects/Ultraman/fyp/ultraman_sensors.jpg" alt="v4 — improved sensing and analytics (FYP)" />
+                        <figcaption>Third Iteration — FYP: improved sensing and analytics (high-res cameras, force, env.) with CV/ML.</figcaption>
+                    </figure>
+                </div>
+                <figcaption>Evolution from industry standard tests to a repeatable, instrumented platform with expanded functionality.</figcaption>
+            </figure>
+        </div>
+
+        <h2>The 3Ps Framework</h2>
+        <div class="box image-box equal-height">
+            <figure>
+                <div class="row-of-3 uniform">
+                    <div class="thumb" style="align-items: stretch; text-align: left">
+                        <h3>Present</h3>
+                        <p>In-line sensing provides immediate visibility: pin-head images reveal material build-up, track images quantify width and discontinuities over cycles, and auxiliary channels (e.g., acoustics) can highlight early changes before visible damage.</p>
+                    </div>
+                    <div class="thumb" style="align-items: stretch; text-align: left">
+                        <h3>Predict</h3>
+                        <p>Processed image metrics and friction signals are combined into a time-aligned dataset. These streams feed models that track condition and estimate the likelihood and timing of galling or rapid wear acceleration.</p>
+                    </div>
+                    <div class="thumb" style="align-items: stretch; text-align: left">
+                        <h3>Prevent</h3>
+                        <p>Temperature-resolved trials and controlled protocols compare anonymised lubricants and process variants. Results guide operating windows and product selection to suppress defect onset.</p>
+                    </div>
+                </div>
+            </figure>
+        </div>
+
+        <h2>Lubricant characteristics tests</h2>
+
+        <div class="box image-box equal-height">
+            <figure>
+                <figure class="thumb" style="align-items: stretch; text-align: left">
+                    <img src="../../../images/Projects/Ultraman/research/coef_graph_2.png" alt="Coefficient of friction trace B" />
+                    <figcaption>Friction evolution comparing different temperatures</figcaption>
+                </figure>
+
+                <figure class="thumb" style="align-items: stretch; text-align: left">
+                    <img src="../../../images/Projects/Ultraman/research/coef_graph_3.png" alt="Coefficient of friction trace C" />
+                    <figcaption>Friction evolution comparing different dilution ratios</figcaption>
+                </figure>
+            </figure>
+        </div>
+
+        <div class="box">
+            <p>Current work compares several anonymised lubricants, pin head materials and process settings across controlled temperature steps and repeated runs, alongside longer continuous tests to observe degradation over hundreds of cycles. A complementary track evaluates baseline and heat-treated tool steels under the same protocols to map out material–process interactions.</p>
+        </div>
+
+        <h2>Research focus</h2>
+        <div class="box image-box">
+            <figure>
+                <div class="row-of-2">
+                    <div class="text-col">
+                        <h3>Platform &amp; AI</h3>
+                        <p>Planned publications: a platform paper on the automated rig (control, sensing, data architecture) and an FYP-derived paper on multi-sensor ML for galling detection and lubricant breakdown.</p>
+                    </div>
+                    <div class="text-col">
+                        <h3>Materials &amp; Lubricants</h3>
+                        <p>Planned publications: a comparative study of tool steels and heat treatments with anonymised lubricants under controlled temperatures and dynamic protocols, and an analysis of onset/transition behaviour and wear-track evolution.</p>
+                    </div>
+                </div>
+            </figure>
+        </div>
+
+        <h2>Preparation & integration</h2>
+        <div class="box">
+            <p>Planned upgrades include sturdier camera mounts and optics for finer track measurements, a revised sensor holder, ceramic roller service, and an access door update. Heater control is being tied directly to the PC with reliable network connectivity and thermocouple inputs for closed-loop operation.</p>
+        </div>
+
+        <footer class="site-footer">
+            <div class="container footer-min">
+                <hr class="footer-rule" />
+                <p>© 2025 Alexander Pittaras</p>
+                <p class="footer-icons">
+                    <a href="mailto:alex.pittaras@gmail.com">
+                        <img src="../../../images/Logos/Gmail_icon.png" alt="" class="icon" />
+                        Gmail
+                    </a>
+                    |
+                    <a href="https://linkedin.com/in/alexpittaras" target="_blank" rel="noopener">
+                        <img src="../../../images/Logos/LinkedIn_logo.png" alt="" class="icon" />
+                        LinkedIn
+                    </a>
+                    |
+                    <a href="https://github.com/Alex-2401" target="_blank" rel="noopener">
+                        <img src="../../../images/Logos/Github_logo.png" alt="" class="icon" />
+                        GitHub
+                    </a>
+                </p>
+                <p>London, UK</p>
+            </div>
+        </footer>
+    </body>
+</html>

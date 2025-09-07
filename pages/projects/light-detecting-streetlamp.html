@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Embedded C - Light Detecting Street Lamp</title>
+        <link rel="stylesheet" href="../../css/style.css" />
+        <meta name="color-scheme" content="light dark" />
+        <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+        <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    </head>
+    <body>
+        <nav class="main-nav">
+            <a href="../../index.html" class="button back-button">Home</a>
+            <a href="../about.html" class="button back-button">About</a>
+            <a href="../experience.html" class="button back-button">Experience</a>
+            <a href="../Projects/ultraman/index.html" class="button back-button">Research</a>
+            <a href="index.html" class="button back-button">Projects</a>
+        </nav>
+
+        <h1>Energy-Saving Automatic Street Lamp</h1>
+
+        <div class="box">
+            <p>The <strong>Energy-Saving Automatic Street Lamp</strong> was developed as a mini-project for the Embedded C for Microcontrollers module. The aim was to design and program a light that automatically responds to ambient conditions, saves energy by reducing output at low-use times, and stays synchronised with the sun without maintenance.</p>
+        </div>
+
+        <div class="box image-box">
+            <img src="../../images/Projects/Embedded-C-Daylight-Sensor/Project_Layout.jpg" alt="Street lamp hardware layout" class="main-image" />
+            <figcaption>Hardware setup with microcontroller, LDR input, and LED outputs</figcaption>
+        </div>
+
+        <div class="box">
+            <h2>How it works</h2>
+            <p><strong>Light detection:</strong> An LDR and comparator trigger an interrupt when light levels change. If the change is before midday it is treated as sunrise (lights off), otherwise as sunset (lights on).</p>
+            <p><strong>Timekeeping:</strong> A real-time clock is maintained in software with timers. The current hour is displayed in binary on an LCD for clear output.</p>
+            <p><strong>Energy saving:</strong> Between 1 am and 5 am, only one third of the LEDs are lit, with rotation each night for even wear. Lights turn fully off if sunrise occurs before 5 am.</p>
+            <p><strong>Daylight savings:</strong> The system checks for the last Sunday in March and October to apply DST changes automatically.</p>
+            <p><strong>Solar synchronisation:</strong> Sunrise and sunset are logged to calculate solar noon using a simplified Equation of Time. This keeps the internal clock aligned with the sun and compensates for drift.</p>
+        </div>
+
+        <div class="box image-box equal-height">
+            <figure>
+                <div class="row-of-2 uniform">
+                    <figure class="thumb">
+                        <video controls preload="metadata">
+                            <source src="../../images/Projects/Embedded-C-Daylight-Sensor/Daylight_Working_Video_1.mp4" type="video/mp4" />
+                        </video>
+                        <figcaption>Daylight detection test</figcaption>
+                    </figure>
+                    <figure class="thumb">
+                        <video controls preload="metadata">
+                            <source src="../../images/Projects/Embedded-C-Daylight-Sensor/Daylight_Savings_Video_1.mp4" type="video/mp4" />
+                        </video>
+                        <figcaption>Daylight savings test</figcaption>
+                    </figure>
+                </div>
+                <figcaption>Demonstrations of automatic light control</figcaption>
+            </figure>
+        </div>
+
+        <footer class="site-footer">
+            <div class="container footer-min">
+                <hr class="footer-rule" />
+                <p>© 2025 Alexander Pittaras</p>
+                <p class="footer-icons">
+                    <a href="mailto:alex.pittaras@gmail.com">
+                        <img src="../../images/Logos/Gmail_icon.png" alt="" class="icon" />
+                        Gmail
+                    </a>
+                    |
+                    <a href="https://linkedin.com/in/alexpittaras" target="_blank" rel="noopener">
+                        <img src="../../images/Logos/LinkedIn_logo.png" alt="" class="icon" />
+                        LinkedIn
+                    </a>
+                    |
+                    <a href="https://github.com/Alex-2401" target="_blank" rel="noopener">
+                        <img src="../../images/Logos/Github_logo.png" alt="" class="icon" />
+                        GitHub
+                    </a>
+                </p>
+                <p>London, UK</p>
+            </div>
+        </footer>
+    </body>
+</html>

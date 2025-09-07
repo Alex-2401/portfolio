@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Wave Propagation Simulation</title>
+        <link rel="stylesheet" href="../../css/style.css" />
+        <meta name="color-scheme" content="light dark" />
+        <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+        <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    </head>
+    <body>
+        <nav class="main-nav">
+            <a href="../../index.html" class="button back-button">Home</a>
+            <a href="../about.html" class="button back-button">About</a>
+            <a href="../experience.html" class="button back-button">Experience</a>
+            <a href="../Projects/ultraman/index.html" class="button back-button">Research</a>
+            <a href="index.html" class="button back-button">Projects</a>
+        </nav>
+
+        <h1>Wave Propagation Simulation</h1>
+
+        <div class="box">
+            <p>
+                This project simulates 2-D surface waves on a 6 m × 6 m water domain by solving the wave equation
+                <span>z<sub>tt</sub> = c<sup>2</sup>(z<sub>xx</sub> + z<sub>yy</sub>)</span>
+                with fixed (zero-displacement) edges using an explicit finite-difference scheme. A short pulse (or sinusoid) at a chosen point generates circular ripples that reflect from the boundaries and form interference patterns; an optional rectangular pillar demonstrates scattering and “shadowing.” Results are shown as animated 3-D surfaces and 2-D contour maps, with brief mesh-refinement studies to illustrate numerical accuracy.
+            </p>
+        </div>
+
+        <h2>Stone Toss Simulation</h2>
+
+        <div class="box image-box">
+            <figure>
+                <video class="responsive-media" controls preload="metadata">
+                    <source src="../../images/Projects/Wave-Propagation/mp4s/wave_animation_800x800.mp4" type="video/mp4" />
+                </video>
+                <figcaption>3D wave simulation with a dropped “stone” at (4, 1); expanding ripples, pillar scattering, and boundary reflections.</figcaption>
+            </figure>
+        </div>
+
+        <div class="box image-box">
+            <figure>
+                <div class="grid-4 uniform">
+                    <div class="uniform-item">
+                        <img src="../../images/Projects/Wave-Propagation/pictures/contour-210.jpg" alt="Contour still A" />
+                    </div>
+                    <div class="uniform-item">
+                        <img src="../../images/Projects/Wave-Propagation/pictures/surface-210.jpg" alt="Surface still A" />
+                    </div>
+                    <div class="uniform-item">
+                        <img src="../../images/Projects/Wave-Propagation/pictures/contour-450.jpg" alt="Contour still B" />
+                    </div>
+                    <div class="uniform-item">
+                        <img src="../../images/Projects/Wave-Propagation/pictures/surface-450.jpg" alt="Surface still B" />
+                    </div>
+                </div>
+                <figcaption>Contour snapshots; the pillar scatters waves and leaves a low-amplitude “shadow” behind it.</figcaption>
+            </figure>
+        </div>
+
+        <h2>Central Oscillator Mesh Refinement Study</h2>
+
+        <div class="box image-box">
+            <figure>
+                <div class="row-of-3 uniform">
+                    <figure class="thumb">
+                        <img src="../../images/Projects/Wave-Propagation/pictures/contours_dx0-01_dt0-01/contour_dx0-01_dt0-01_t4-00.png" alt="dx=0.01, t=4 s" />
+                        <figcaption>dx=0.01</figcaption>
+                    </figure>
+                    <figure class="thumb">
+                        <img src="../../images/Projects/Wave-Propagation/pictures/contours_dx0-1_dt0-01/contour_dx0-1_dt0-01_t4-00.png" alt="dx=0.1, t=4 s" />
+                        <figcaption>dx=0.1</figcaption>
+                    </figure>
+                    <figure class="thumb">
+                        <img src="../../images/Projects/Wave-Propagation/pictures/contours_dx0-25_dt0-01/contour_dx0-25_dt0-01_t4-00.png" alt="dx=0.25, t=4 s" />
+                        <figcaption>dx=0.25</figcaption>
+                    </figure>
+                </div>
+                <figcaption>Mesh comparison — Time = 4 seconds</figcaption>
+            </figure>
+        </div>
+
+        <div class="box image-box">
+            <figure>
+                <div class="row-of-3 uniform">
+                    <figure class="thumb">
+                        <img src="../../images/Projects/Wave-Propagation/pictures/contours_dx0-01_dt0-01/contour_dx0-01_dt0-01_t6-00.png" alt="dx=0.01, t=6 s" />
+                        <figcaption>dx=0.01</figcaption>
+                    </figure>
+                    <figure class="thumb">
+                        <img src="../../images/Projects/Wave-Propagation/pictures/contours_dx0-1_dt0-01/contour_dx0-1_dt0-01_t6-00.png" alt="dx=0.1, t=6 s" />
+                        <figcaption>dx=0.1</figcaption>
+                    </figure>
+                    <figure class="thumb">
+                        <img src="../../images/Projects/Wave-Propagation/pictures/contours_dx0-25_dt0-01/contour_dx0-25_dt0-01_t6-00.png" alt="dx=0.25, t=6 s" />
+                        <figcaption>dx=0.25</figcaption>
+                    </figure>
+                </div>
+                <figcaption>Mesh comparison — Time = 6 seconds</figcaption>
+            </figure>
+        </div>
+
+        <div class="box image-box">
+            <figure>
+                <div class="row-of-3 uniform">
+                    <figure class="thumb">
+                        <img src="../../images/Projects/Wave-Propagation/pictures/contours_dx0-01_dt0-01/contour_dx0-01_dt0-01_t10-00.png" alt="dx=0.01, t=10 s" />
+                        <figcaption>dx=0.01</figcaption>
+                    </figure>
+                    <figure class="thumb">
+                        <img src="../../images/Projects/Wave-Propagation/pictures/contours_dx0-1_dt0-01/contour_dx0-1_dt0-01_t10-00.png" alt="dx=0.1, t=10 s" />
+                        <figcaption>dx=0.1</figcaption>
+                    </figure>
+                    <figure class="thumb">
+                        <img src="../../images/Projects/Wave-Propagation/pictures/contours_dx0-25_dt0-01/contour_dx0-25_dt0-01_t10-00.png" alt="dx=0.25, t=10 s" />
+                        <figcaption>dx=0.25</figcaption>
+                    </figure>
+                </div>
+                <figcaption>Mesh comparison — Time = 10 seconds</figcaption>
+            </figure>
+        </div>
+
+        <footer class="site-footer">
+            <div class="container footer-min">
+                <hr class="footer-rule" />
+                <p>© 2025 Alexander Pittaras</p>
+                <p class="footer-icons">
+                    <a href="mailto:alex.pittaras@gmail.com">
+                        <img src="../../images/Logos/Gmail_icon.png" alt="" class="icon" />
+                        Gmail
+                    </a>
+                    |
+                    <a href="https://linkedin.com/in/alexpittaras" target="_blank" rel="noopener">
+                        <img src="../../images/Logos/LinkedIn_logo.png" alt="" class="icon" />
+                        LinkedIn
+                    </a>
+                    |
+                    <a href="https://github.com/Alex-2401" target="_blank" rel="noopener">
+                        <img src="../../images/Logos/Github_logo.png" alt="" class="icon" />
+                        GitHub
+                    </a>
+                </p>
+                <p>London, UK</p>
+            </div>
+        </footer>
+    </body>
+</html>

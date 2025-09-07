@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Embedded C - Autonomous Vehicle</title>
+        <link rel="stylesheet" href="../../css/style.css" />
+        <meta name="color-scheme" content="light dark" />
+        <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+        <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    </head>
+    <body>
+        <nav class="main-nav">
+            <a href="../../index.html" class="button back-button">Home</a>
+            <a href="../about.html" class="button back-button">About</a>
+            <a href="../experience.html" class="button back-button">Experience</a>
+            <a href="../Projects/ultraman/index.html" class="button back-button">Research</a>
+            <a href="index.html" class="button back-button">Projects</a>
+        </nav>
+
+        <h1>Autonomous Colour-Sensing Vehicle</h1>
+
+        <div class="box">
+            <p>The <strong>Autonomous Mine-Rescue Buggy</strong> was developed as coursework for the Embedded C for Microcontrollers module. It is a PIC-based vehicle that reads coloured waypoints, executes the mapped manoeuvre, and returns home by replaying the command log in inverse. The system uses a TCS3471 colour sensor over I²C, RGB to HSV classification, PWM motor control, wall-alignment, and turn calibration.</p>
+
+            <h3>Results</h3>
+            <ul class="indented-list">
+                <li>Fastest time with interference: 1:31 (1st out of 37)</li>
+                <li>Only team to record a successful non-interference run (time: 3:00)</li>
+            </ul>
+
+            <p><em>Note:</em> The outcome was influenced not only by control logic but also by hardware limitations. In particular, the low-grade components caused variability in performance: the motors produced slightly different outputs, leading to a tendency for the buggy to drift left or right. This required continual adjustment of power delivery and calibration routines to maintain a straight path and reliable navigation.</p>
+        </div>
+
+        <h2>How it works</h2>
+
+        <div class="box image-box equal-height">
+            <figure>
+                <div class="row-of-3 uniform">
+                    <figure class="thumb">
+                        <video controls preload="metadata">
+                            <source src="../../images/Projects/Embedded-C-Car/Maze_Video_Fast.mp4" type="video/mp4" />
+                        </video>
+                        <figcaption>Final course with fast movement</figcaption>
+                    </figure>
+                    <figure class="thumb">
+                        <video controls preload="metadata">
+                            <source src="../../images/Projects/Embedded-C-Car/Maze_Video_Small.mp4" type="video/mp4" />
+                        </video>
+                        <figcaption>Small example maze run with slow movement</figcaption>
+                    </figure>
+                    <div class="text-col">
+                        <p><strong>Sensor:</strong> The colour sensor reads RGBC values, adjusts with a white reference, converts to HSV, and matches to preset colour ranges.</p>
+                        <p><strong>Control:</strong> Wheels run on PWM with side-specific tuning. The buggy reduces drift by bumping the wall before and after each card, then moves in fixed steps.</p>
+                        <p><strong>State:</strong> Each move is logged. On the finish card, the log is replayed in reverse so the buggy returns to the start.</p>
+                        <p><strong>Modes:</strong> Accuracy mode (power≈25) for careful runs, and Speed mode (power≈60) for faster but less precise runs.</p>
+                    </div>
+                </div>
+            </figure>
+        </div>
+
+        <div class="box image-box equal-height">
+            <figure>
+                <div class="row-of-3 uniform">
+                    <figure class="thumb">
+                        <video controls preload="metadata">
+                            <source src="../../images/Projects/Embedded-C-Car/Calibration_Video.mp4" type="video/mp4" />
+                        </video>
+                        <figcaption>Turn calibration</figcaption>
+                    </figure>
+                    <figure class="thumb">
+                        <video controls preload="metadata">
+                            <source src="../../images/Projects/Embedded-C-Car/Colour_Detection_Video.mp4" type="video/mp4" />
+                        </video>
+                        <figcaption>Colour sensing demo</figcaption>
+                    </figure>
+                    <div class="thumb">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Colour</th>
+                                    <th>Instruction</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Red</td>
+                                    <td>Turn right 90°</td>
+                                </tr>
+                                <tr>
+                                    <td>Green</td>
+                                    <td>Turn left 90°</td>
+                                </tr>
+                                <tr>
+                                    <td>Blue</td>
+                                    <td>Turn 180°</td>
+                                </tr>
+                                <tr>
+                                    <td>Yellow</td>
+                                    <td>Reverse 1 square, turn right 90°</td>
+                                </tr>
+                                <tr>
+                                    <td>Pink</td>
+                                    <td>Reverse 1 square, turn left 90°</td>
+                                </tr>
+                                <tr>
+                                    <td>Orange</td>
+                                    <td>Turn right 135°</td>
+                                </tr>
+                                <tr>
+                                    <td>Light blue</td>
+                                    <td>Turn left 135°</td>
+                                </tr>
+                                <tr>
+                                    <td>White</td>
+                                    <td>Finish — return home</td>
+                                </tr>
+                                <tr>
+                                    <td>Black</td>
+                                    <td>Wall detected — return sequence</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <figcaption>Colour code used for navigation</figcaption>
+                    </div>
+                </div>
+            </figure>
+        </div>
+
+        <div class="box image-box equal-height">
+            <figure>
+                <div class="row-of-3 uniform">
+                    <figure class="thumb">
+                        <img src="../../images/Projects/Embedded-C-Car/Car_Picture.png" alt="Mine-rescue buggy" />
+                        <figcaption>Buggy hardware (PIC, motor driver, colour sensor and 3D printed light shield)</figcaption>
+                    </figure>
+                    <figure class="thumb">
+                        <img src="../../images/Projects/Embedded-C-Car/Buggy_Pins.png" alt="Buggy pinout" />
+                        <figcaption>Pinout and available I/O</figcaption>
+                    </figure>
+                    <figure class="thumb">
+                        <img src="../../images/Projects/Embedded-C-Car/Project_diagram.png" alt="Course/logic schematic" />
+                        <figcaption>Course logic</figcaption>
+                    </figure>
+                </div>
+                <figcaption>Platform, pinout, and control flow</figcaption>
+            </figure>
+        </div>
+
+        <div class="box image-box equal-height">
+            <figure>
+                <div class="row-of-2 uniform">
+                    <figure class="thumb">
+                        <img src="../../images/Projects/Embedded-C-Car/Color_Click_Diagram.png" alt="Colour Click circuit" />
+                        <figcaption>TCS3471 + tri-LED (I²C interface)</figcaption>
+                    </figure>
+                    <figure class="thumb">
+                        <img src="../../images/Projects/Embedded-C-Car/RGB_HSV_Conversion.jpg" alt="RGB to HSV conversion" />
+                        <figcaption>RGB to HSV conversion used for robust thresholds</figcaption>
+                    </figure>
+                </div>
+                <figcaption>Perception pipeline</figcaption>
+            </figure>
+        </div>
+
+        <footer class="site-footer">
+            <div class="container footer-min">
+                <hr class="footer-rule" />
+                <p>© 2025 Alexander Pittaras</p>
+                <p class="footer-icons">
+                    <a href="mailto:alex.pittaras@gmail.com">
+                        <img src="../../images/Logos/Gmail_icon.png" alt="" class="icon" />
+                        Gmail
+                    </a>
+                    |
+                    <a href="https://linkedin.com/in/alexpittaras" target="_blank" rel="noopener">
+                        <img src="../../images/Logos/LinkedIn_logo.png" alt="" class="icon" />
+                        LinkedIn
+                    </a>
+                    |
+                    <a href="https://github.com/Alex-2401" target="_blank" rel="noopener">
+                        <img src="../../images/Logos/Github_logo.png" alt="" class="icon" />
+                        GitHub
+                    </a>
+                </p>
+                <p>London, UK</p>
+            </div>
+        </footer>
+    </body>
+</html>
